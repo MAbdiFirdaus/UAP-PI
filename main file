@@ -3,3 +3,13 @@ import json
 from IPython.display import Image,display,clear_output,YouTubeVideo
 import keyboard
 import dc_detail_film as d
+
+class welcome:
+    def hello():
+        print(format("Selamat Datang").center(50,' ')+"\n")
+        print(format("Di-Aplikasi Tiket Bioskop Online").center(50,' ')+"\n")
+        print("\n")
+        print("\n")
+        print("\n")
+        print(format("Klik rigth arrow to continue").center(50,' '))
+        keyboard.wait('enter')
