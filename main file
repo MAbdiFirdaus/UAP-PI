@@ -51,3 +51,49 @@ def showFilm(x):
                     pass
         except:
             pass
+
+def buatTiket():
+    while True:
+        try:
+            jmltiket = eval(input("Jumlah tiket : "))
+        except:
+            continue
+        break
+    clear_output()
+    for x in range(jmltiket):
+        top='┏'+'--------------------------------------------------'+'┓\n'
+        Tiket='Tiket Bioskop'
+        nama = input("Nama : ")
+        mail = input("email : ")
+
+        bot='┡'+'--------------------------------------------------'+'┩'
+
+
+        # format teks
+
+        namaInput ='┃'+"Nama : {}".format(nama).center(50,' ')+'┃'+'\n'
+        mailInput='┃' + "email : {}" .format(mail).center(50, ' ') + '┃'+'\n'
+        tiket='┃'+'{}'.format(Tiket).center(50,' ')+'┃\n'
+        
+
+        #tulis teks ke file
+        with open('beliTiket.txt','w', encoding ='utf-8')as f :
+            f.write(top)
+            f.write(tiket)
+            f.write(namaInput)
+            f.write(mailInput)
+            f.write(bot)
+
+        # tutup file
+        f.close()
+        with open('beliTiket.txt','r', encoding ='utf-8')as g :
+            bukadong = g.readlines()
+            for x in bukadong:
+                print(x)
+                if x == '\n':
+                    print('\n')
+
+        g.close()
+
+def showExit():
+    print("Terimakasih telah mengunjungi aplikasi pemesanan tiket kami :)")
