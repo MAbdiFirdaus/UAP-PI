@@ -13,3 +13,14 @@ class welcome:
         print("\n")
         print(format("Klik rigth arrow to continue").center(50,' '))
         keyboard.wait('enter')
+        
+namaFilm=["black panther: Wakanda Forever","qorin","save and share","keramat"]
+responses=[]
+url = "https://imdb8.p.rapidapi.com/auto-complete"
+# querystring = {"q":namaFilm}
+
+headers = {
+	"X-RapidAPI-Key": "40f9cb0b01msh62ffd489d08c53dp1cb9c4jsn572a981a97cc",
+	"X-RapidAPI-Host": "imdb8.p.rapidapi.com"
+}
+
