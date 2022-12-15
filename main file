@@ -17,7 +17,6 @@ class welcome:
 namaFilm=["black panther: Wakanda Forever","qorin","save and share","keramat"]
 responses=[]
 url = "https://imdb8.p.rapidapi.com/auto-complete"
-# querystring = {"q":namaFilm}
 
 headers = {
 	"X-RapidAPI-Key": "40f9cb0b01msh62ffd489d08c53dp1cb9c4jsn572a981a97cc",
@@ -31,11 +30,7 @@ for x in range(len(namaFilm)):
 
   data = json.loads(response.text)
 
-  formattedData = json.dumps(data, indent=4)
-  
-  dataDict = json.loads(formattedData)
-
-  responses.append(dataDict['d']) 
+  responses.append(data['d']) 
   
   print(response.status_code)
 
@@ -116,3 +111,52 @@ def buatTiket():
 
 def showExit():
     print("Terimakasih telah mengunjungi aplikasi pemesanan tiket kami :)")
+    
+def loopingFilm():
+    x=0    
+
+    while True:
+        try:
+            if x<=3:
+                clear_output()
+                showFilm(x)
+                
+                try:
+                    value=eval(input("tekan 1 untuk melanjutkan or tekan esc untuk melihat film lain "))
+                    if value==1:
+                        return x
+                except:
+                    pass
+                keyboard.record(until="right_arrow")
+                x+=1
+            else:
+                x=0
+                clear_output()
+                showFilm(x)
+                try:
+                    value=eval(input("tekan 1 untuk melanjutkan or tekan esc untuk melihat film lain "))
+                    if value==1:
+                        return x
+                except:
+                    pass
+		keyboard.record(until="right_arrow")
+                x=+1
+        except:
+            pass
+	    
+a = True
+into=welcome
+into.hello()
+while(a):
+    x=loopingFilm()
+    clear_output()
+    showDetail(x)
+    keyboard.wait('enter')
+    buatTiket()
+    test = input("Apakah anda ingin membeli tiket lagi?(Y/N) : ")
+    if test == "y":
+        clear_output()
+        continue
+    else:
+        showExit()
+        break
