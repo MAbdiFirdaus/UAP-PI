@@ -38,3 +38,16 @@ for x in range(len(namaFilm)):
   responses.append(dataDict['d']) 
   
   print(response.status_code)
+
+def showFilm(x):
+    print("\n\nSearch Term: \"" + str(namaFilm[x]) + "\"")
+    for film in responses[x]:
+        try:
+            if film["qid"]=="movie" and film["y"]==2022:
+                try:
+                    print("Judul: " + film["l"])
+                    display(Image(url=film["i"]["imageUrl"],width=168.8,height=250))
+                except:
+                    pass
+        except:
+            pass
