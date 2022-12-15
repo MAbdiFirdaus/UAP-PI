@@ -52,6 +52,25 @@ def showFilm(x):
         except:
             pass
 
+def showDetail(x):
+    for film in responses[x]:
+        try:
+            if film["qid"]=="movie" and film["y"]==2022:
+                try:
+                    print("Detail Film")
+                    display(Image(url=film["i"]["imageUrl"],width=168.8,height=250))
+                    print("Judul: " + film["l"])
+                    print("Jenis: " + film["qid"])
+                    print("Actor: " + film["s"])
+                    print("Sinopsis :\n" + d.sinopsis[x])
+                    print("Trailer :\n")
+                    display(YouTubeVideo(d.trailer[x]))
+                    break
+                except:
+                    pass
+        except:
+            pass
+
 def buatTiket():
     while True:
         try:
